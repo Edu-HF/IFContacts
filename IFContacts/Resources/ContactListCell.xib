@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ContactListCell" reuseIdentifier="ContactListCell" id="DCo-gC-Vxz" customClass="ContactListCell" customModule="IFContacts" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="126"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="126"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfg-ZO-W8F">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="135"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notPicProfile2_IM" translatesAutoresizingMaskIntoConstraints="NO" id="QK3-Hh-SFR">
+                                <rect key="frame" x="1" y="1" width="97" height="97"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellBG_IM" translatesAutoresizingMaskIntoConstraints="NO" id="0up-Nl-jnJ">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9b-bW-e5V">
+                                <rect key="frame" x="8" y="60" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="O8N-0A-tcl"/>
+                                    <constraint firstAttribute="height" constant="40" id="P6q-fx-hHn"/>
+                                </constraints>
+                                <state key="normal" image="phoneCall_IM">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGi-SG-yb8">
+                                <rect key="frame" x="0.0" y="112" width="100" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="UCe-Lf-ybt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EW8-uV-7D0">
+                                <rect key="frame" x="52" y="60" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9Ke-pm-cbE"/>
+                                    <constraint firstAttribute="width" constant="40" id="Aml-5i-nqp"/>
+                                </constraints>
+                                <state key="normal" image="userProfile_IM">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0up-Nl-jnJ" firstAttribute="top" secondItem="Jfg-ZO-W8F" secondAttribute="top" id="89l-B5-igr"/>
+                            <constraint firstItem="xGi-SG-yb8" firstAttribute="bottom" secondItem="Jfg-ZO-W8F" secondAttribute="bottomMargin" id="8Ce-Pu-8Ba"/>
+                            <constraint firstItem="xGi-SG-yb8" firstAttribute="top" secondItem="QK3-Hh-SFR" secondAttribute="bottom" constant="14" id="AWI-6N-BX0"/>
+                            <constraint firstItem="0up-Nl-jnJ" firstAttribute="trailing" secondItem="xGi-SG-yb8" secondAttribute="trailing" id="CSj-j4-NmT"/>
+                            <constraint firstItem="xGi-SG-yb8" firstAttribute="top" secondItem="0up-Nl-jnJ" secondAttribute="bottom" constant="12" id="Lzn-Jk-TOb"/>
+                            <constraint firstItem="0up-Nl-jnJ" firstAttribute="centerY" secondItem="QK3-Hh-SFR" secondAttribute="centerY" id="RqK-wj-hdj"/>
+                            <constraint firstItem="0up-Nl-jnJ" firstAttribute="leading" secondItem="Jfg-ZO-W8F" secondAttribute="leading" id="ToV-E6-dQf"/>
+                            <constraint firstItem="EW8-uV-7D0" firstAttribute="top" secondItem="0up-Nl-jnJ" secondAttribute="bottom" constant="-40" id="Ukh-Am-hcA"/>
+                            <constraint firstItem="EW8-uV-7D0" firstAttribute="leading" secondItem="0up-Nl-jnJ" secondAttribute="trailing" constant="-48" id="aPq-kb-nhI"/>
+                            <constraint firstAttribute="trailing" secondItem="0up-Nl-jnJ" secondAttribute="trailing" id="fCz-BB-EgB"/>
+                            <constraint firstItem="g9b-bW-e5V" firstAttribute="top" secondItem="0up-Nl-jnJ" secondAttribute="bottom" constant="-40" id="fkM-kJ-mFv"/>
+                            <constraint firstItem="0up-Nl-jnJ" firstAttribute="centerX" secondItem="QK3-Hh-SFR" secondAttribute="centerX" id="gtK-wK-Or2"/>
+                            <constraint firstItem="0up-Nl-jnJ" firstAttribute="leading" secondItem="g9b-bW-e5V" secondAttribute="trailing" constant="-48" id="u3x-Qs-lOz"/>
+                            <constraint firstItem="QK3-Hh-SFR" firstAttribute="leading" secondItem="Jfg-ZO-W8F" secondAttribute="leading" constant="1" id="uF2-aF-YJy"/>
+                            <constraint firstItem="0up-Nl-jnJ" firstAttribute="leading" secondItem="xGi-SG-yb8" secondAttribute="leading" id="uFH-Md-KIU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Jfg-ZO-W8F" secondAttribute="trailing" id="Tr5-h5-q4S"/>
+                <constraint firstItem="Jfg-ZO-W8F" firstAttribute="leading" secondItem="DCo-gC-Vxz" secondAttribute="leading" id="e9l-ig-dwc"/>
+                <constraint firstItem="Jfg-ZO-W8F" firstAttribute="top" secondItem="DCo-gC-Vxz" secondAttribute="top" id="eID-vt-PuS"/>
+                <constraint firstAttribute="bottom" secondItem="Jfg-ZO-W8F" secondAttribute="bottom" constant="-9" id="zVE-9a-GjJ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="tdU-j2-0lw"/>
+            <size key="customSize" width="155" height="176"/>
+            <connections>
+                <outlet property="cBGView" destination="Jfg-ZO-W8F" id="xiL-wm-hbe"/>
+                <outlet property="cCallButton" destination="g9b-bW-e5V" id="nLh-DH-Fqa"/>
+                <outlet property="cImage" destination="QK3-Hh-SFR" id="snn-rG-yaC"/>
+                <outlet property="cNameLabel" destination="xGi-SG-yb8" id="u39-KZ-vWi"/>
+                <outlet property="cProfileButton" destination="EW8-uV-7D0" id="W4y-wq-0p9"/>
+            </connections>
+            <point key="canvasLocation" x="-168" y="-65"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cellBG_IM" width="98" height="98"/>
+        <image name="notPicProfile2_IM" width="205" height="205"/>
+        <image name="phoneCall_IM" width="44" height="44"/>
+        <image name="userProfile_IM" width="44" height="44"/>
+    </resources>
+</document>

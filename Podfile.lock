@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (4.7.2)
+  - Gloss (2.0.1)
+  - NVActivityIndicatorView (4.2.1):
+    - NVActivityIndicatorView/Presenter (= 4.2.1)
+  - NVActivityIndicatorView/Presenter (4.2.1)
+  - SwiftyAvatar (1.1.3)
+  - ViewAnimator (2.1.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - Gloss
+  - NVActivityIndicatorView
+  - SwiftyAvatar
+  - ViewAnimator
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Gloss
+    - NVActivityIndicatorView
+    - SwiftyAvatar
+    - ViewAnimator
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Gloss: 1e8743f8de1fbe14a97f220ff901cba91ae5f8f8
+  NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
+  SwiftyAvatar: 33aecda825c91851cac2aabd06b33f3698b2414c
+  ViewAnimator: 43c31539508d995ea2c5e98338211f7c009b358f
+
+PODFILE CHECKSUM: d3d9bb98027f912573b21b2a2e02249fba490ba6
+
+COCOAPODS: 1.5.3

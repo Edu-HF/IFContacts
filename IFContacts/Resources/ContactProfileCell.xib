@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContactProfileTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellProfile" rowHeight="335" id="p9h-Vp-zIc" customClass="ContactProfileTableViewCell" customModule="IFContacts" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="335"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p9h-Vp-zIc" id="ecB-gs-sDc">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="334.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notPicProfile2_IM" translatesAutoresizingMaskIntoConstraints="NO" id="Cnf-cB-bfr">
+                        <rect key="frame" x="65" y="45" width="245" height="245"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="245" id="kHu-zx-PNo"/>
+                            <constraint firstAttribute="height" constant="245" id="uIK-Jp-fbc"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellBG_IM" translatesAutoresizingMaskIntoConstraints="NO" id="c7E-Uv-mjx">
+                        <rect key="frame" x="62" y="42" width="250" height="250"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="250" id="GbM-wT-kWm"/>
+                            <constraint firstAttribute="width" constant="250" id="ntQ-io-5wt"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boC-yI-22U">
+                        <rect key="frame" x="62" y="290" width="250" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="jBf-lc-yHd"/>
+                            <constraint firstAttribute="width" constant="250" id="xPa-0O-rkc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="Cnf-cB-bfr" firstAttribute="centerX" secondItem="ecB-gs-sDc" secondAttribute="centerX" id="AsK-Ed-G7z"/>
+                    <constraint firstItem="c7E-Uv-mjx" firstAttribute="centerX" secondItem="ecB-gs-sDc" secondAttribute="centerX" id="UiL-IZ-so8"/>
+                    <constraint firstItem="boC-yI-22U" firstAttribute="centerX" secondItem="c7E-Uv-mjx" secondAttribute="centerX" id="hyD-rt-c55"/>
+                    <constraint firstItem="boC-yI-22U" firstAttribute="top" secondItem="c7E-Uv-mjx" secondAttribute="bottom" constant="-2" id="jYc-Hc-urg"/>
+                    <constraint firstItem="c7E-Uv-mjx" firstAttribute="centerY" secondItem="ecB-gs-sDc" secondAttribute="centerY" id="tGy-DF-lrl"/>
+                    <constraint firstItem="Cnf-cB-bfr" firstAttribute="centerY" secondItem="ecB-gs-sDc" secondAttribute="centerY" id="xXO-yI-dvT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="cFullNameLabel" destination="boC-yI-22U" id="gLg-AX-wFu"/>
+                <outlet property="cProfileImage" destination="Cnf-cB-bfr" id="Iit-rx-BNQ"/>
+            </connections>
+            <point key="canvasLocation" x="18.5" y="163.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cellBG_IM" width="98" height="98"/>
+        <image name="notPicProfile2_IM" width="205" height="205"/>
+    </resources>
+</document>

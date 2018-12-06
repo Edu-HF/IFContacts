@@ -1,0 +1,6 @@
+framework module Pods_IFContacts {
+  umbrella header "Pods-IFContacts-umbrella.h"
+
+  export *
+  module * { export * }
+}
