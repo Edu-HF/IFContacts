@@ -122,9 +122,14 @@ class DataManager: NSObject, DataManagerProtocol, InteractorOutputProtocol {
     //MARK: InteractorOutputProtocol Methods
     func onFailure(_ failure: AnyObject){
         print("ERROR API: ", failure)
+        if let mainCPresenter = self.mainPresenter as? ContactsPresenter {
+            mainCPresenter.showError(msgIn: failure)
+        }
     }
     
     func onError(_ error: AnyObject){
-        
+        if let mainCPresenter = self.mainPresenter as? ContactsPresenter {
+            mainCPresenter.showError(msgIn: error)
+        }
     }
 }

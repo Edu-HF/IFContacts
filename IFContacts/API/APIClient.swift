@@ -32,11 +32,15 @@ class APIClient: NSObject {
         print("Parametros: ", params)
         print("MainURL: ", mainURL ?? "URL Vacia")
         
-        Alamofire.request(mainURL!, parameters: params, headers: headers).responseString { response in
+        let aManager = Alamofire.SessionManager.default
+        aManager.session.configuration.timeoutIntervalForResource = 10
+        
+        aManager.request(mainURL!, parameters: params, headers: headers).responseString { response in
             
             switch response.result {
             case .success(let value):
                 if let sCode = response.response?.statusCode {
+                    
                     switch(sCode){
                     case 200:
                         print("JSON: ", value)
@@ -47,12 +51,12 @@ class APIClient: NSObject {
                         handler.onFailure("An error occurred while trying to establish the connection to the server. Please try later" as AnyObject)
                     default:
                         print("JSON: ", value)
-                        handler.onFailure(NSLocalizedString("E_WS_STANDAR_ERROR", comment: "") as AnyObject)
+                        handler.onFailure("An error occurred while trying to establish the connection to the server. Please try later" as AnyObject)
                     }
                 }
             case .failure(let error):
                 print("Error: ", error)
-                handler.onFailure(NSLocalizedString("E_WS_STANDAR_ERROR", comment: "") as AnyObject)
+                handler.onFailure("An error occurred while trying to establish the connection to the server. Please try later" as AnyObject)
             }
         }
     }

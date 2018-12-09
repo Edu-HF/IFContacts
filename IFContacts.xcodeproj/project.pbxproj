@@ -22,6 +22,8 @@
 		EB9DF29121A9AD6E002961A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB9DF28F21A9AD6E002961A9 /* Main.storyboard */; };
 		EB9DF29321A9AD7E002961A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9DF29221A9AD7E002961A9 /* Assets.xcassets */; };
 		EB9DF29621A9AD7E002961A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB9DF29421A9AD7E002961A9 /* LaunchScreen.storyboard */; };
+		EBB1AEF821BC787F00E29D06 /* ContactListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBB1AEF721BC787F00E29D06 /* ContactListTVCell.xib */; };
+		EBB1AEFA21BC7D4500E29D06 /* ContactListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB1AEF921BC7D4500E29D06 /* ContactListTVCell.swift */; };
 		EBD0FFB221B07FAF007EDEFE /* HttpConnectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD0FFB121B07FAF007EDEFE /* HttpConnectionProtocol.swift */; };
 		EBD0FFB421B07FF9007EDEFE /* HttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD0FFB321B07FF9007EDEFE /* HttpConnection.swift */; };
 		EBD0FFB621B0808C007EDEFE /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD0FFB521B0808C007EDEFE /* ResponseHandler.swift */; };
@@ -54,6 +56,8 @@
 		EB9DF29221A9AD7E002961A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB9DF29521A9AD7E002961A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB9DF29721A9AD7E002961A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBB1AEF721BC787F00E29D06 /* ContactListTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactListTVCell.xib; sourceTree = "<group>"; };
+		EBB1AEF921BC7D4500E29D06 /* ContactListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTVCell.swift; sourceTree = "<group>"; };
 		EBD0FFB121B07FAF007EDEFE /* HttpConnectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpConnectionProtocol.swift; sourceTree = "<group>"; };
 		EBD0FFB321B07FF9007EDEFE /* HttpConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpConnection.swift; sourceTree = "<group>"; };
 		EBD0FFB521B0808C007EDEFE /* ResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 				EBEF5AC721AAFDD700C18E90 /* ContactListCell.swift */,
 				EB1D954321B32F6000F7FEB1 /* ContactProfileTableViewCell.swift */,
 				EB1D954521B32F6D00F7FEB1 /* ContactProfileInfoTableViewCell.swift */,
+				EBB1AEF921BC7D4500E29D06 /* ContactListTVCell.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				EBEF5AC521AAF9BF00C18E90 /* ContactListCell.xib */,
 				EB1D953F21B32DA500F7FEB1 /* ContactProfileCell.xib */,
 				EB1D954121B32EE300F7FEB1 /* ContactProfileInfoCell.xib */,
+				EBB1AEF721BC787F00E29D06 /* ContactListTVCell.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 				EB9DF29621A9AD7E002961A9 /* LaunchScreen.storyboard in Resources */,
 				EB9DF29321A9AD7E002961A9 /* Assets.xcassets in Resources */,
 				EB9DF29121A9AD6E002961A9 /* Main.storyboard in Resources */,
+				EBB1AEF821BC787F00E29D06 /* ContactListTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +344,7 @@
 				EBD0FFB621B0808C007EDEFE /* ResponseHandler.swift in Sources */,
 				EBEF5AC821AAFDD700C18E90 /* ContactListCell.swift in Sources */,
 				EBD0FFB821B080E8007EDEFE /* APIClient.swift in Sources */,
+				EBB1AEFA21BC7D4500E29D06 /* ContactListTVCell.swift in Sources */,
 				EB1D954621B32F6D00F7FEB1 /* ContactProfileInfoTableViewCell.swift in Sources */,
 				EB9DF28C21A9AD6E002961A9 /* AppDelegate.swift in Sources */,
 				EB0C374421B85F0A009DCE39 /* ContactPhones.swift in Sources */,

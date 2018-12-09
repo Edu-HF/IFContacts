@@ -180,3 +180,17 @@ extension String {
     }
 }
 
+extension UIViewController {
+    
+    func buildButtonFromNB(delegateIn: ContactsListViewController) {
+        
+        let barButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        barButton.setBackgroundImage(#imageLiteral(resourceName: "list_IM"), for: .normal)
+        barButton.addTarget(delegateIn, action: #selector(delegateIn.showOrHideUI(_:)), for: .touchUpInside)
+        barButton.tag = 901
+        let barButtonItem = UIBarButtonItem(customView: barButton)
+
+        delegateIn.navigationItem.rightBarButtonItem = barButtonItem
+    }
+}
+

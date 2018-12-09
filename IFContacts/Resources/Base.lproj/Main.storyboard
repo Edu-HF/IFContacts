@@ -54,13 +54,25 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="xbo-5d-nCg"/>
                                 </connections>
                             </collectionView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fja-bp-OXz">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.23137254900000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ZWV-Ui-MQh"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ogb-ml-Ks8"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.25882352941176467" green="0.25098039215686274" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZDD-FP-eKH" secondAttribute="bottom" id="177-Gb-WkB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZDD-FP-eKH" secondAttribute="trailing" id="Oiz-ry-Jzh"/>
-                            <constraint firstItem="ZDD-FP-eKH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bG7-4e-6k8"/>
-                            <constraint firstItem="ZDD-FP-eKH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vKf-1A-YMe"/>
+                            <constraint firstItem="Fja-bp-OXz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="EVn-WK-BU4"/>
+                            <constraint firstItem="Fja-bp-OXz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ede-Bp-IEV"/>
+                            <constraint firstItem="Fja-bp-OXz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="R1u-oh-hjs"/>
+                            <constraint firstItem="ZDD-FP-eKH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WDw-6I-NNf"/>
+                            <constraint firstItem="Fja-bp-OXz" firstAttribute="trailing" secondItem="ZDD-FP-eKH" secondAttribute="trailing" id="adu-HN-9hC"/>
+                            <constraint firstItem="Fja-bp-OXz" firstAttribute="bottom" secondItem="ZDD-FP-eKH" secondAttribute="bottom" id="nmq-mL-dG5"/>
+                            <constraint firstAttribute="trailing" secondItem="Fja-bp-OXz" secondAttribute="trailing" id="rcX-eg-lle"/>
+                            <constraint firstItem="Fja-bp-OXz" firstAttribute="leading" secondItem="ZDD-FP-eKH" secondAttribute="leading" id="yI7-FK-6Wq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -69,6 +81,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mainContactsCV" destination="ZDD-FP-eKH" id="8r6-hd-yiZ"/>
+                        <outlet property="mainContactsTV" destination="Fja-bp-OXz" id="XIN-YE-gKl"/>
                         <segue destination="KUx-fD-1RW" kind="show" identifier="showContactDetail" id="yU7-eW-iRL"/>
                     </connections>
                 </viewController>

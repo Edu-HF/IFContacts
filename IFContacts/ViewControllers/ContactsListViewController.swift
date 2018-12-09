@@ -12,12 +12,36 @@ import ViewAnimator
 class ContactsListViewController: MainBaseViewController {
     
     @IBOutlet weak var mainContactsCV: UICollectionView!
-    var mainContactsPresenter: ContactsPresenter!
+    @IBOutlet weak var mainContactsTV: UITableView!
+    private var mainToolBarButton: UIBarButtonItem!
+    private var mainContactsPresenter: ContactsPresenter!
+    private var searchVC: UISearchController!
+    private var isShowTV: Bool = false
     var contactIDSelected: Int!
-    var searchVC: UISearchController!
+    
+    lazy var refreshCCV: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(ContactsListViewController.getContactList),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = .white
+        
+        return refreshControl
+    }()
+    
+    lazy var refreshCTV: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(ContactsListViewController.getContactList),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = .white
+        
+        return refreshControl
+    }()
     
     //MARK: View Animator Var
-    let viewAnimator = AnimationType.from(direction: .right, offset: 50.0)
+    let viewAnimatorRight = AnimationType.from(direction: .right, offset: 50.0)
+    let viewAnimatorTop = AnimationType.from(direction: .top, offset: 50.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +50,12 @@ class ContactsListViewController: MainBaseViewController {
     
     func setupView() {
         
+        buildButtonFromNB(delegateIn: self)
+        
         mainContactsCV.register(UINib(nibName: "ContactListCell", bundle: nil), forCellWithReuseIdentifier: "ContactListCell")
+        mainContactsTV.register(UINib(nibName: "ContactListTVCell", bundle: nil), forCellReuseIdentifier: "ContactListTVCell")
+        mainContactsTV.rowHeight = 125
+        mainContactsTV.separatorStyle = .none
         
         searchVC = UISearchController(searchResultsController: nil)
         searchVC.searchResultsUpdater = self
@@ -34,21 +63,61 @@ class ContactsListViewController: MainBaseViewController {
         searchVC.searchBar.placeholder = "Search Contacts"
         navigationItem.searchController = searchVC
         definesPresentationContext = true
+        self.extendedLayoutIncludesOpaqueBars = true
         
-        showLoading()
+        if #available(iOS 10.0, *) {
+            mainContactsCV.refreshControl = refreshCCV
+            mainContactsTV.refreshControl = refreshCTV
+        }else{
+            mainContactsCV.addSubview(refreshCCV)
+            mainContactsTV.addSubview(mainContactsTV)
+        }
+    
         mainContactsPresenter = ContactsPresenter(mainViewIn: self)
+        showLoading()
+        getContactList()
+    }
+    
+    @objc func showOrHideUI(_ sender: UIButton) {
+        
+        if isShowTV {
+            isShowTV = false
+            mainContactsTV.isHidden = true
+            mainContactsCV.isHidden = false
+            sender.setImage(#imageLiteral(resourceName: "list_IM"), for: .normal)
+        }else {
+            isShowTV = true
+            mainContactsTV.isHidden = false
+            mainContactsCV.isHidden = true
+            sender.setImage(#imageLiteral(resourceName: "grill_IM"), for: .normal)
+        }
+    }
+    
+    @objc func getContactList() {
+        refreshCCV.endRefreshing()
+        refreshCTV.endRefreshing()
         mainContactsPresenter.getContactsList()
     }
     
     override func refreshUI() {
         removeLoading()
-        mainContactsCV.reloadData()
-        mainContactsCV.performBatchUpdates({
-            UIView.animate(views: self.mainContactsCV.orderedVisibleCells,
-                           animations: [viewAnimator], completion: {
-                            
-            })
-        }, completion: nil)
+        if !isShowTV {
+            mainContactsCV.reloadData()
+            mainContactsCV.performBatchUpdates({
+                UIView.animate(views: mainContactsCV.orderedVisibleCells,
+                               animations: [viewAnimatorRight], completion: {
+                                self.mainContactsTV.reloadData()
+                })
+            }, completion: nil)
+        }else{
+            mainContactsTV.reloadData()
+            mainContactsTV.performBatchUpdates({
+                UIView.animate(views: mainContactsTV.visibleCells,
+                               animations: [viewAnimatorTop], completion: {
+                                self.mainContactsCV.reloadData()
+                })
+            }, completion: nil)
+        }
     }
     
     func isFilterNow() -> Bool {
@@ -98,6 +167,7 @@ class ContactsListViewController: MainBaseViewController {
     }
 }
 
+//MARK: Extentions For UICollection View Components
 extension ContactsListViewController: UISearchControllerDelegate, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -173,6 +243,74 @@ extension ContactsListViewController: UICollectionViewDataSource, UICollectionVi
                 return CGSize(width: 160, height: 186)
             }
         }
+    }
+}
+
+//MARK: Extentions For UITable View Components
+extension ContactsListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if isFilterNow() {
+            return mainContactsPresenter.mainFilterContactsData.count
+        }
+        
+        let contactKey = mainContactsPresenter.mainContactTitlesIndex[section]
+        if let contactA = mainContactsPresenter.mainContactDic[contactKey] {
+            return contactA.count
+        }
+        
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let tvCell = tableView.dequeueReusableCell(withIdentifier: "ContactListTVCell") as! ContactListTVCell
+        
+        var mainContact: Contact!
+        if isFilterNow() {
+            mainContact = mainContactsPresenter.mainFilterContactsData[indexPath.row]
+        }else{
+            let contactKey = mainContactsPresenter.mainContactTitlesIndex[indexPath.section]
+            if let contactA = mainContactsPresenter.mainContactDic[contactKey] {
+                mainContact = contactA[indexPath.row]
+            }
+        }
+        
+        tvCell.setupCell(contactIn: mainContact, indexIn: indexPath)
+        
+        tvCell.cCallButton.addTarget(self, action: #selector(makeContactCall(_:)), for: .touchUpInside   )
+        tvCell.cProfileButton.addTarget(self, action: #selector(viewContactDetail(_:)), for: .touchUpInside   )
+        
+        tvCell.selectionStyle = .none
+        return tvCell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if isFilterNow() {
+            return mainContactsPresenter.mainFilterHeaderTitle.count
+        }
+        
+        return mainContactsPresenter.mainContactTitlesIndex.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if isFilterNow() {
+            return mainContactsPresenter.mainFilterHeaderTitle[section]
+        }
+        
+        return mainContactsPresenter.mainContactTitlesIndex[section]
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        
+        if isFilterNow() {
+            return nil
+        }
+        
+        return mainContactsPresenter.mainContactTitlesIndex
     }
 }
 

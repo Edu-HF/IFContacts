@@ -359,7 +359,7 @@ open class DataRequest: Request {
 
     struct Requestable: TaskConvertible {
         let urlRequest: URLRequest
-
+ 
         func task(session: URLSession, adapter: RequestAdapter?, queue: DispatchQueue) throws -> URLSessionTask {
             do {
                 let urlRequest = try self.urlRequest.adapt(using: adapter)

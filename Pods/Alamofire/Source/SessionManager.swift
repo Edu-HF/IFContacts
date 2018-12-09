@@ -259,7 +259,7 @@ open class SessionManager {
 
             let task = try originalTask.task(session: session, adapter: adapter, queue: queue)
             let request = DataRequest(session: session, requestTask: .data(originalTask, task))
-
+        
             delegate[task] = request
 
             if startRequestsImmediately { request.resume() }

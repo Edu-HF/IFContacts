@@ -17,6 +17,9 @@ class ContactsPresenter: NSObject {
     var mainContactSelected: Contact!
     var mainVCIn: MainBaseViewController!
     var mainFilterContactsData: [Contact] = []
+    var mainContactTitlesIndex: [String] = []
+    var mainContactDic = [String : [Contact]]()
+    var mainFilterHeaderTitle: [String] = ["Resultados por Nombre"]
     
     required init(mainViewIn: MainBaseViewController) {
         super.init()
@@ -33,7 +36,23 @@ class ContactsPresenter: NSObject {
     }
     
     func setContactList(mainContactsDataIn: [Contact]) {
+        
         mainContactsData = mainContactsDataIn
+        mainContactTitlesIndex = []
+        mainContactDic = [String : [Contact]]()
+        for tempContact in mainContactsData {
+            let cKey = String(tempContact.contactFName.prefix(1))
+            if var contactV = mainContactDic[cKey] {
+                contactV.append(tempContact)
+                mainContactDic[cKey] = contactV
+            }else{
+                mainContactDic[cKey] = [tempContact]
+            }
+        }
+        
+        mainContactTitlesIndex = [String](mainContactDic.keys)
+        mainContactTitlesIndex = mainContactTitlesIndex.sorted(by: { $0 < $1 })
+        
         mainVCIn.refreshUI()
     }
     
@@ -49,5 +68,10 @@ class ContactsPresenter: NSObject {
         })
         
         mainVCIn.refreshUI()
+    }
+    
+    func showError(msgIn: Any) {
+        mainVCIn.removeLoading()
+        mainVCIn.buildMSGAlert(titleIn: "Conection Error", msgIn: msgIn, buttonsIn: [["Title" : "Aceptar", "Action" : ""]])
     }
 }

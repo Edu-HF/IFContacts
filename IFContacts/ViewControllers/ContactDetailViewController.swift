@@ -109,7 +109,7 @@ extension ContactDetailViewController: UITableViewDataSource, UITableViewDelegat
         switch cellIdentifierOptions[indexPath.row] {
         case "cellAddress":
             let seeMapAct = UITableViewRowAction(style: .normal, title: "See in Map", handler: { action, index in
-                self.buildMSGAlert(titleIn: "SOON", msgIn: ";)", buttonsIn: [["Title" : "Aceptar", "Action" : ""]])
+                self.canOpenURL(urlIn: "https://maps.app.goo.gl/i/7ZoRx")
             })
             
             seeMapAct.backgroundColor = UIColor().buildHexColor(hexIn: "#C06C84")

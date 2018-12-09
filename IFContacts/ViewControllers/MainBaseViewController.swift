@@ -48,6 +48,22 @@ class MainBaseViewController: UIViewController {
         self.present(eAlert, animated: true, completion: nil)
     }
     
+    func canOpenURL(urlIn: String) {
+        
+        let urlString = urlIn.replacingOccurrences(of: " ", with: "")
+        guard let mainURL = URL(string: urlString) else {
+            
+            self.buildMSGAlert(titleIn: "Ups", msgIn: "We cannot Open that URL now. Please try later", buttonsIn: [["Title" : "Aceptar", "Action" : ""]])
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(mainURL) {
+            UIApplication.shared.open(mainURL, options: [:], completionHandler: nil)
+        }else{
+            self.buildMSGAlert(titleIn: "Ups", msgIn: "We cannot Open that URL now. Please try later", buttonsIn: [["Title" : "Aceptar", "Action" : ""]])
+        }
+    }
+    
     func canMakePhoneCall(phoneNumIn: String) {
         
         let phoneNum = phoneNumIn.replacingOccurrences(of: " ", with: "")
